@@ -1,8 +1,10 @@
+// [IDX-09]
 function procesarAtbash(texto, alfabeto) {
     let resultado = '';
     const len = alfabeto.length;
     if (len === 0) return texto;
 
+    // [IDX-10]
     for (let i = 0; i < texto.length; i++) {
         let char = texto[i];
         let lowerChar = char.toLowerCase();
@@ -24,5 +26,6 @@ function procesarAtbash(texto, alfabeto) {
     return resultado;
 }
 
+// [IDX-11]
 function cifrarAtbash(texto, alfabeto) { return procesarAtbash(texto, alfabeto); }
 function descifrarAtbash(texto, alfabeto) { return procesarAtbash(texto, alfabeto); }

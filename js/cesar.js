@@ -1,10 +1,13 @@
+// [IDX-12]
 function cifrarCesar(texto, desplazamiento, alfabeto) {
     let resultado = '';
     const len = alfabeto.length;
-    if (len === 0) return texto; // Si borran el alfabeto, no hace nada
+    if (len === 0) return texto; 
     
+    // [IDX-13]
     const shift = ((desplazamiento % len) + len) % len;
 
+    // [IDX-14]
     for (let i = 0; i < texto.length; i++) {
         let char = texto[i];
         let lowerChar = char.toLowerCase();
@@ -26,6 +29,7 @@ function cifrarCesar(texto, desplazamiento, alfabeto) {
     return resultado;
 }
 
+// [IDX-15]
 function descifrarCesar(texto, desplazamiento, alfabeto) {
     return cifrarCesar(texto, -desplazamiento, alfabeto);
 }

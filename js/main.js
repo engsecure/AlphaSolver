@@ -1,6 +1,8 @@
+// [IDX-01]
 let metodoActual = 'auto';
 const palabrasComunesEspanol = ["de", "la", "el", "en", "que", "y", "los", "un", "una", "se", "por", "con", "no", "su", "para", "es", "al", "lo", "como", "más", "hola", "mundo"];
 
+// [IDX-02]
 function cambiarMetodo(metodo) {
     metodoActual = metodo;
     
@@ -19,6 +21,7 @@ function cambiarMetodo(metodo) {
     procesarTexto();
 }
 
+// [IDX-03]
 function evaluarTextoEspanol(texto) {
     const palabras = texto.toLowerCase().match(/[a-záéíóúñ]+/g) || [];
     let puntuacion = 0;
@@ -37,6 +40,7 @@ function evaluarTextoEspanol(texto) {
     return puntuacion;
 }
 
+// [IDX-04]
 function encontrarMejorDesplazamiento(texto, alfabeto) {
     let mejorShift = 0;
     let mejorPuntuacion = -1;
@@ -54,6 +58,7 @@ function encontrarMejorDesplazamiento(texto, alfabeto) {
     return { shift: mejorShift, score: mejorPuntuacion };
 }
 
+// [IDX-05]
 function procesarTexto() {
     const textoEntrada = document.getElementById('texto-origen').value;
     const textoCifrado = document.getElementById('texto-cifrado');
@@ -71,6 +76,7 @@ function procesarTexto() {
         return;
     }
 
+    // [IDX-06]
     if (metodoActual === 'auto') {
         const pruebaAtbash = descifrarAtbash(textoEntrada, alfabeto);
         const scoreAtbash = evaluarTextoEspanol(pruebaAtbash);
@@ -87,7 +93,9 @@ function procesarTexto() {
             textoDescifrado.value = descifrarCesar(textoEntrada, cesarMejor.shift, alfabeto);
             configCesar.classList.remove('oculto');
         }
-    } else if (metodoActual === 'atbash') {
+    } 
+    // [IDX-07]
+    else if (metodoActual === 'atbash') {
         textoCifrado.value = cifrarAtbash(textoEntrada, alfabeto);
         textoDescifrado.value = descifrarAtbash(textoEntrada, alfabeto);
     } else if (metodoActual === 'cesar') {
@@ -97,6 +105,7 @@ function procesarTexto() {
     }
 }
 
+// [IDX-08]
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('texto-origen').addEventListener('input', procesarTexto);
     document.getElementById('alfabeto').addEventListener('input', procesarTexto);
